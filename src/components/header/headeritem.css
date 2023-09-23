@@ -1,0 +1,15 @@
+.header-item {
+    display: inline-block;
+    margin: 0 1em;
+    color: rgb(195, 195, 195);
+    font-size: 2em;
+}
+
+.header-item:hover {
+    cursor: pointer;
+    filter: brightness(110%);
+}
+
+.active {
+    font-weight: bold;
+}
