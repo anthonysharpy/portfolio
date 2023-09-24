@@ -18,7 +18,7 @@ export function Plane(props: Props) {
       position={new Vector3()}
       receiveShadow
       ref={meshRef}>
-      <planeGeometry args={[props.sceneObject.size, props.sceneObject.size]} />
+      <planeGeometry args={[props.sceneObject.size, props.sceneObject.size/2]} />
       <meshLambertMaterial color={'white'} />
     </mesh>
   )

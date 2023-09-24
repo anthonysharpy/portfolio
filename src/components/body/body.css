@@ -4,16 +4,35 @@
     margin: 0 auto;
     min-height: 10em;
     border-radius: 2em;
-    padding: 0.1em 2em;
+    padding: 1em 4em 3em 4em;
     box-shadow: rgba(0, 0, 0, 0.3) 1em 1em 1em;
+    color: rgb(85, 85, 85);
+    margin-bottom: 3em;
+    line-height: 2em;
+    border: solid black 1px;
 }
 
 p {
-    font-size: 1.2em;
+    font-size: 1.1em;
+}
+
+li {
+    font-size: 1.1em;
 }
 
 h1 {
     font-weight: bold;
     font-size: 2em;
     text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+    margin-bottom: 1.5em;
+}
+
+code {
+    background-color: rgb(75, 75, 75);
+    border-radius: 0.2em;
+    padding: 0.2em;
+    color: rgb(211, 211, 211);
+    margin: 0 0.1em;
 }

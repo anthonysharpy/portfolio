@@ -6,7 +6,7 @@ import { RandomVector } from "../../helpers/mathhelpers";
 export class MeteorChunk extends SceneObject {
     constructor(spawnPosition: Vector3) {
         super(ObjectType.Cube, 
-            1, 
+            2, 
             RandomVector().multiplyScalar(20),
             "meteor chunk")            
 
@@ -15,7 +15,7 @@ export class MeteorChunk extends SceneObject {
         this.collisionsEnabled = true
     }
 
-    tick = () => {
+    override tick() {
         if (Date.now() - this.spawnedAt > 20000) {
             deleteSceneObject(this)
         }

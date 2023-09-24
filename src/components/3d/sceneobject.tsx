@@ -34,23 +34,24 @@ export class SceneObject {
         switch(this.type) {
             case ObjectType.Cube:
                 this.initialiseCube()
+                break
             case ObjectType.Plane:
                 this.initialisePlane()
+                break
         }
     }
 
-    tick = () => { }
+    tick() { }
 
-    onCollide = (otherObject: SceneObject) => { 
+    onCollide(otherObject: SceneObject) { 
         if (this.type == ObjectType.Cube && otherObject.type == ObjectType.Cube) {
             this.resolveSphericalCollision(otherObject)
-            otherObject.resolveSphericalCollision(this)
         } else if (this.type == ObjectType.Cube && otherObject.type == ObjectType.Plane) {
             this.resolveFloorCollision()
         }
     }
 
-    setPosition = (position: Vector3) => {
+    setPosition(position: Vector3) {
         this.position = position
 
         if ( this.mesh != null ) {
@@ -60,11 +61,17 @@ export class SceneObject {
         }
     } 
 
-    getPosition = (): Vector3 => {
+    getPosition(): Vector3 {
         return this.position.clone()
     }
 
-    setRotation = (rotation: Euler) => {
+    /** Like getPosition except this returns a reference to the position vector,
+     * which is unsafe but useful for some micro-optimisations. */
+    getPositionRef(): Vector3 {
+        return this.position
+    }
+
+    setRotation(rotation: Euler) {
         this.rotation = rotation
 
         if ( this.mesh != null ) {
@@ -74,15 +81,21 @@ export class SceneObject {
         }
     } 
 
-    getRotation = (): Euler => {
+    getRotation(): Euler {
         return this.rotation.clone()
     } 
 
-    private initialiseCube = () => {
+    /** Like getPosition except this returns a reference to the rotation,
+     * which is unsafe but useful for some micro-optimisations. */
+    getRotationRef(): Euler {
+        return this.rotation.clone()
+    } 
+
+    private initialiseCube() {
         this.element = <Box sceneObject={this}/>
     }
 
-    private initialisePlane = () => {
+    private initialisePlane() {
         this.element = <Plane sceneObject={this}/>
     }
 
@@ -90,7 +103,7 @@ export class SceneObject {
      * a crappy sphere collision algorithm; could make it more complicated,
      * but doubt anyone would care. These objects are far away and fast-moving,
      * so won't notice the difference. */
-    collidingWith = (otherObject: SceneObject): boolean => {
+    collidingWith(otherObject: SceneObject): boolean {
         if (!this.collisionsEnabled || !otherObject.collisionsEnabled) {
             return false
         }
@@ -104,21 +117,22 @@ export class SceneObject {
     } 
 
     /** Does this object (which we figured out was a cube), collide with otherObject? */
-    private checkCubeCollision = (otherObject: SceneObject): boolean => {
+    private checkCubeCollision (otherObject: SceneObject): boolean {
         switch (otherObject.type) {
             case ObjectType.Cube:
-                return this.getPosition().distanceTo(otherObject.getPosition()) < (otherObject.size + this.size) / 2
+                const collisionDistance = (otherObject.size + this.size) / 2
+                return this.position.distanceToSquared(otherObject.getPositionRef()) < (collisionDistance * collisionDistance)
             // Again, I can't be bothered to do this properly... we only have 1 plane (the floor) :-)
             case ObjectType.Plane:
-                return this.getPosition().y - this.size/2 < -10
+                return this.getPositionRef().y - this.size/2 < -10
         }
     }
 
     /** Does this object (which we figured out was a plane), collide with otherObject? */
-    private checkPlaneCollision = (otherObject: SceneObject): boolean => {
+    private checkPlaneCollision (otherObject: SceneObject): boolean {
         switch (otherObject.type) {
             case ObjectType.Cube:
-                return otherObject.getPosition().y - otherObject.size/2 < -10
+                return otherObject.getPositionRef().y - otherObject.size/2 < -10
             default:
                 throw new Error("unknown collision type with object "+otherObject.objectName)
         }

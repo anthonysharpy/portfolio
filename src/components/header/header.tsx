@@ -1,16 +1,21 @@
-import { Page } from "../../pages/page";
 import { Routes } from "../../pages/routes";
 import { HeaderItem } from "./headeritem";
 import './header.css'
+import { CurrentPageContext } from "../../App";
+import { useContext } from 'react';
 
-interface Props {
-    currentPage: Page
-}
+export const Header: React.FC<{}> = () => {
+    const currentPageContext = useContext(CurrentPageContext);
 
-export const Header: React.FC<Props> = (props: Props) => {
     return (
         <div className="header-container">
-            {Routes.map(x => <HeaderItem key={x.identifer} pageName={x.title} active={x.identifer == props.currentPage.identifer}/>)}
+            {Routes.map(x =>
+                <>
+                    <p className="header-bar">|</p>
+                    <HeaderItem key={x.identifer} pageName={x.title} pageIdentifier={x.identifer}/>
+                </>
+            )}
+            <p className="header-bar">|</p>
         </div>
     );
 }

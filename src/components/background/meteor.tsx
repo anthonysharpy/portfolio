@@ -18,20 +18,22 @@ export class Meteor extends SceneObject {
         this.angularVelocity = new Vector3((Math.random()-0.5) * 2, (Math.random()-0.5) * 2, (Math.random()-0.5) * 2)
     }
 
-    tick = () => {
+    override tick() {
         if (Date.now() - this.spawnedAt > 20000) {
             deleteSceneObject(this)
         }
     }
 
-    onCollide = (otherObject: SceneObject) => {
+    override onCollide(otherObject: SceneObject) {
+        super.onCollide(otherObject)
+
         this.explode()
     }
 
-    explode = () => {
+    explode() {
         deleteSceneObject(this)
 
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 50; i++) {
             addSceneObject(new MeteorChunk(this.getPosition()))
         }
     }
