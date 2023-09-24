@@ -35,4 +35,32 @@ code {
     padding: 0.2em;
     color: rgb(211, 211, 211);
     margin: 0 0.1em;
+    font-size: 0.8em;
+}
+
+pre.normal-pre {
+    background-color: rgb(222, 222, 222);
+    color: black;
+    display: inline-block;
+    width: 100%;
+    border-left: solid rgb(195, 195, 195) 0.5em;
+    padding: 0.5em 0.5em 0.5em 1em;
+    line-height: 1.5em;
+    margin: 0;
+}
+
+pre code {
+    background-color: rgb(75, 75, 75);
+    color: rgb(211, 211, 211);
+    display: inline-block;
+    width: 100%;
+    padding: 0.5em 0.5em 0.5em 1em;
+    line-height: 1.5em;
+    margin: 0;
+    font-size: 1em;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
 }

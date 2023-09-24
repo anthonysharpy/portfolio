@@ -149,7 +149,7 @@ function doLogic(delta: number) {
 }
 
 function maybeSpawnMeteor(delta: number) {
-    if ( Math.random() * delta > 0.0035 ) {
+    if ( Math.random() * delta > 0.004 ) {
         addSceneObject(new Meteor())
     }
 }

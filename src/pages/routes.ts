@@ -8,7 +8,7 @@ import { CCPlusPlusPage } from "./ccplusplus"
 export const Routes = [
     new Page("home", "Home", HomePage()),
     new Page("go", "Go", GoPage()),
-    new Page("csharp", "C#", CSharpPage()),
+    // Page("csharp", "C#", CSharpPage()),
     new Page("react", "React", ReactPage()),
-    new Page("ccplusplus", "C/C++", CCPlusPlusPage())
+    //new Page("ccplusplus", "C/C++", CCPlusPlusPage())
 ]

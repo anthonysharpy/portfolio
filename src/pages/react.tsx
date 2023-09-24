@@ -1,10 +1,10 @@
 export function ReactPage() {
     return (
         <>
-            <p>This website is built in React; here it is: <a href="https://github.com/anthonysharpy/portfolio">https://github.com/anthonysharpy/portfolio</a> 😁</p>
+            <p>This website is built in React; here it is: <a href="https://github.com/anthonysharpy/portfolio" target="_blank">https://github.com/anthonysharpy/portfolio</a> 😁</p>
             <p>I actually have more commercial experience using Angular, but since React is a lot more common, React it was!</p>
             <h2>Site layout</h2>
-            <p>I opted for a single-page website since not only is this much simpler, but it also makes the site feel more responsive (And unique!). This probably isn't a good idea for more complicated sites, since downloading and rendering the whole thing at once could make the initial page load too long. Also, having everything on one page also likely harms search-engine optimisation. But it works nicely on simple sites like mine.</p>
+            <p>I opted for a single-page website since not only is this much simpler, but it also makes the site feel more responsive (And unique!). This probably isn't a good idea for more complicated sites, since downloading and rendering the whole thing at once could make the initial page load too long. Also, having everything on one page also likely harms search-engine optimisation, and makes it impossible to share a page with someone else by copy-pasting the URL. But it works nicely on simple sites like mine.</p>
             <p>I wanted a simple and modern layout that was easy to navigate and that conveyed an upbeat and positive message, whilst also being unique and a bit show-offy.</p>
             <h2>Tech decisions</h2>
             <p>The background animations are created from scratch using React Three Fiber, which is a React wrapper around the three.js graphics library. In hindsight it would have been better just to use three.js natively; Fiber requires that the scene is re-generated every time you add or remove an object (there are probably ways around this, but this is not really something I felt like it was worth spending days and days on).</p>
