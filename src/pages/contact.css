@@ -9,3 +9,8 @@
     white-space-collapse: preserve;
     margin: 0.2em 0;
 }
+
+.contact-row:hover svg {
+    color: rgb(113, 57, 141);
+    transform: rotate(10deg);
+}
