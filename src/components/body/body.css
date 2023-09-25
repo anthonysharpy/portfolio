@@ -1,5 +1,5 @@
 .content-container {
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(255, 255, 255);
     width: 60vw;
     margin: 0 auto;
     min-height: 10em;
@@ -9,7 +9,7 @@
     color: rgb(85, 85, 85);
     margin-bottom: 3em;
     line-height: 2em;
-    border: solid black 1px;
+    border: solid black 2px;
 }
 
 p {
@@ -27,6 +27,11 @@ h1 {
     text-decoration: underline;
     text-underline-offset: 0.3em;
     margin-bottom: 1.5em;
+}
+
+h2 {
+    margin-top: 2em;
+    text-align: center;
 }
 
 code {
@@ -52,11 +57,10 @@ pre.normal-pre {
 pre code {
     background-color: rgb(75, 75, 75);
     color: rgb(211, 211, 211);
-    display: inline-block;
-    width: 100%;
-    padding: 0.5em 0.5em 0.5em 1em;
+    display: block;
+    padding: 1.5em 2em;
     line-height: 1.5em;
-    margin: 0;
+    margin: 2em 0;
     font-size: 1em;
 }
 
