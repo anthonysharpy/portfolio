@@ -2,7 +2,12 @@ export function ReactPage() {
     return (
         <>
             <p>This website is built in React; here it is: <a href="https://github.com/anthonysharpy/portfolio" target="_blank">https://github.com/anthonysharpy/portfolio</a> 😁</p>
-            <p>I actually have more commercial experience using Angular, but since React is a lot more common, React it was!</p>
+            <p>I actually have more commercial experience using Angular, but since React is a lot more common, React it was! However, I worked for a year with Angular (7 I think it was). Here are some examples of the sort of things I worked on:</p>
+            <ul>
+                <li><a href="https://quotes.insuremystuff4less.com/static/caravan" target="_blank">https://quotes.insuremystuff4less.com/static/caravan</a></li>
+                <li><a href="https://quotes.insuremystuff4less.com/taxi/vehicle" target="_blank">https://quotes.insuremystuff4less.com/taxi/vehicle</a></li>
+            </ul>
+            <p>Obviously not all of that was made by me, and it's changed slightly since I worked there (but not much).</p>
             <h2>Site layout</h2>
             <p>I opted for a single-page website since not only is this much simpler, but it also makes the site feel more responsive (And unique!). This probably isn't a good idea for more complicated sites, since downloading and rendering the whole thing at once could make the initial page load too long. Also, having everything on one page also likely harms search-engine optimisation, and makes it impossible to share a page with someone else by copy-pasting the URL. But it works nicely on simple sites like mine.</p>
             <p>I wanted a simple and modern layout that was easy to navigate and that conveyed an upbeat and positive message, whilst also being unique and a bit show-offy.</p>
