@@ -26,6 +26,7 @@ h1 {
     text-decoration: underline;
     text-underline-offset: 0.3em;
     margin-bottom: 1.5em;
+    text-shadow: 2px 2px rgb(181 220 236)
 }
 
 h2 {

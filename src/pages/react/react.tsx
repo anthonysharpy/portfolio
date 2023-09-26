@@ -2,7 +2,7 @@ export function ReactPage() {
     return (
         <>
             <p>This website is built in React; here it is: <a href="https://github.com/anthonysharpy/portfolio" target="_blank">https://github.com/anthonysharpy/portfolio</a> 😁</p>
-            <p>I actually have more commercial experience using Angular, but since React is a lot more common, React it was! However, I worked for a year with Angular (7 I think it was). Here are some examples of the sort of things I worked on:</p>
+            <p>I actually have more commercial experience using Angular, but since React is a lot more common, React it was! However, I worked for a year with Angular (version 7 I think it was). Here are some examples of the sorts of things I worked on:</p>
             <ul>
                 <li><a href="https://quotes.insuremystuff4less.com/static/caravan" target="_blank">https://quotes.insuremystuff4less.com/static/caravan</a></li>
                 <li><a href="https://quotes.insuremystuff4less.com/taxi/vehicle" target="_blank">https://quotes.insuremystuff4less.com/taxi/vehicle</a></li>
