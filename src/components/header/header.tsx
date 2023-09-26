@@ -8,12 +8,15 @@ export const Header: React.FC<{}> = () => {
     const currentPageContext = useContext(CurrentPageContext);
 
     return (
-        <div className="header-container">
-            {Routes.map(x =>
-                <>
-                    <HeaderItem key={x.identifer} pageName={x.title} pageIdentifier={x.identifer}/>
-                </>
-            )}
-        </div>
+        <>
+            <p className="centered name">Anthony Sharp</p>
+            <div className="header-container">
+                {Routes.map(x =>
+                    <>
+                        <HeaderItem key={x.identifer} pageName={x.title} pageIdentifier={x.identifer}/>
+                    </>
+                )}
+            </div>
+        </>
     );
 }

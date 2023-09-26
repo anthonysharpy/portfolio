@@ -6,9 +6,11 @@ export const Body: React.FC<{}> = () => {
     const currentPageContext = useContext(CurrentPageContext);
 
     return (
-        <div className="content-container">
-            <h1>{currentPageContext?.currentPage.title}</h1>
-            {currentPageContext?.currentPage.content}
-        </div>
+        <>
+            <div className="content-container">
+                <h1>{currentPageContext?.currentPage.title}</h1>
+                {currentPageContext?.currentPage.content}
+            </div>
+        </>
     )
 }
