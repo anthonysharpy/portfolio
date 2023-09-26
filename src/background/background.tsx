@@ -15,7 +15,7 @@ const tickRate = 60
 const tickInterval = 1 / tickRate
 const physicsTickInterval = 1 / 60
 const gravity = new Vector3(0, -40, 0)
-const drag = 0.001 // Between 0 and 1.
+const drag = 0.001 // Between 0 and 1. I'm not really sure if this a good value or not but it seems to work nicely.
 const angularDrag = 1 // Between 0 and 1. 
 
 let sceneObjects: SceneObject[]
