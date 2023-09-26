@@ -7,19 +7,15 @@ interface Props {
 }
 
 export function Box(props: Props) {
-  // This reference will give us direct access to the mesh
-  const meshRef = useRef<Mesh>(null)
-  props.sceneObject.mesh = meshRef
+  props.sceneObject.mesh = useRef<Mesh>(null)
 
-  // Return view, these are regular three.js elements expressed in JSX
   return (
     <mesh
       key={props.sceneObject.objectID}
-      scale={props.sceneObject.size}
-      ref={meshRef}
+      ref={props.sceneObject.mesh}
       castShadow
       receiveShadow>
-      <boxGeometry args={[1, 1, 1]} />
+      <boxGeometry args={[props.sceneObject.size, props.sceneObject.size, props.sceneObject.size]} />
       <meshLambertMaterial color={'white'} />
     </mesh>
   )

@@ -1,4 +1,4 @@
-import { Routes } from "../../pages/routes";
+import { Routes } from "../../pages/pagecontroller";
 import { HeaderItem } from "./headeritem";
 import './header.css'
 import { CurrentPageContext } from "../../App";

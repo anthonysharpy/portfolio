@@ -1,21 +1,22 @@
-import React, { ReactNode, useEffect, useState } from 'react'
-import { Canvas, extend, useFrame, useThree } from '@react-three/fiber'
-import { Plane } from '../3d/plane'
+import React, { ReactNode, useState } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber'
 import './background.css'
-import { DegreesToRadians } from '../../helpers/mathhelpers'
-import { Color, Euler, SpotLightShadow, Vector3 } from 'three'
-import { ObjectType, SceneObject } from '../3d/sceneobject'
+import { degreesToRadians, randomVector } from '../helpers/mathhelpers'
+import { Euler, Vector3 } from 'three'
+import { ObjectType, SceneObject } from './sceneobject'
+import { SoftShadows } from '@react-three/drei'
+import { MeteorChunk } from './meteorchunk'
+import { CollisionHandler } from './collisionhandler'
 import { Meteor } from './meteor'
-import { Effects, SoftShadows } from '@react-three/drei'
 
 let lastTickTime: number = Date.now()
 let lastPhysicsTickTime: number = Date.now()
 const tickRate = 60
 const tickInterval = 1 / tickRate
-const physicsTickInterval = 1 / 1
-const gravity = new Vector3(0, -10, 0)
+const physicsTickInterval = 1 / 60
+const gravity = new Vector3(0, -40, 0)
 const drag = 0.001 // Between 0 and 1.
-const angularDrag = 1 // Between 0 and 1.
+const angularDrag = 1 // Between 0 and 1. 
 
 let sceneObjects: SceneObject[]
 let sceneDirty: boolean = true // If true, we need to rebuild the scene (probably a better way to do this but eh, downside of this fiber library really).
@@ -44,9 +45,10 @@ export function Background() {
 
 function initialiseScene() {
     let floor = new SceneObject(ObjectType.Plane, 1000, new Vector3(), "floor")
-    floor.setRotation(new Euler(DegreesToRadians(-90), 0, 0))
+    floor.setRotation(new Euler(degreesToRadians(-90), 0, 0))
     floor.setPosition(new Vector3(0, -10, -250))
     floor.affectedByGravity = false
+    floor.static = true
 
     sceneObjects = [
         floor
@@ -65,18 +67,17 @@ const FrameHandler: React.FC<{setFrame: React.Dispatch<React.SetStateAction<numb
     }> = ({ setFrame }) => {
 
     useFrame((state, delta) => {
-        handleGoneObjects()
-        applyPhysics(delta)
+        moveObjects(delta)
 
         let currentTime = Date.now()
         let timeSinceLastTick = currentTime - lastTickTime
         let timeSinceLastPhysicsTick = currentTime - lastPhysicsTickTime
 
         if (timeSinceLastPhysicsTick >= physicsTickInterval * 1000) {
-            checkCollisions()
+            applyForces()
         }
         if (timeSinceLastTick >= tickInterval * 1000) {
-            doLogic(delta)
+            doLogic(tickInterval)
         }
 
         // Only force component re-render if scene is dirty.
@@ -90,17 +91,13 @@ const FrameHandler: React.FC<{setFrame: React.Dispatch<React.SetStateAction<numb
 }
 
 /** Move stuff. */
-function applyPhysics(delta: number) {
+function moveObjects(delta: number) {
     // Go back-to-front so we can safely remove elements if we need to.
     for (let i = sceneObjects.length-1; i >= 0; i--) {
         const x = sceneObjects[i]
 
         // Velocity
         x.setPosition(x.getPosition().add(x.velocity.clone().multiplyScalar(delta)))
-
-        if (x.affectedByGravity) {
-            x.velocity = x.velocity.clone().add(gravity.clone().multiplyScalar(delta))
-        }
 
         // Angular velocity
         let change = x.angularVelocity.clone().multiplyScalar(delta)
@@ -116,20 +113,27 @@ function applyPhysics(delta: number) {
     }
 }
 
-function checkCollisions() {
+/** Check collisions and do gravity. */
+function applyForces() {
     lastPhysicsTickTime = Date.now()
 
+    let i, j = 0
+    const gravityAmount = gravity.clone().multiplyScalar(physicsTickInterval)
+
     // Go back-to-front so we can safely remove elements if we need to.
-    for(let i = sceneObjects.length-1; i >= 0; i--) {
-        // Force objects that aren't really doing anything to be ignored from now on.
-        if (sceneObjects[i].velocity.lengthSq() < 1 && sceneObjects[i].getPositionRef().y <= -9.9) {
-        //    sceneObjects[i].asleep = true
-        //    continue
+    for(i = sceneObjects.length-1; i >= 0; i--) {
+        if (sceneObjects[i].affectedByGravity) {
+            sceneObjects[i].velocity.add(gravityAmount)
         }
 
-        // Do some very basic collision checks against all other objects.
-        for (let j = i-1; j >= 0; j--) {
-            if (sceneObjects[i].collidingWith(sceneObjects[j])) {
+        // Do some collision checks against all other objects.
+        for (j = i-1; j >= 0; j--) {
+            if (sceneObjects[i].collisionHandler.isCollidingWith(sceneObjects[j])) {
+                CollisionHandler.resolveOverlap(sceneObjects[i], sceneObjects[j], physicsTickInterval)
+
+                sceneObjects[i].collisionHandler.handleCollisionWith(sceneObjects[j])
+                sceneObjects[j].collisionHandler.handleCollisionWith(sceneObjects[i])
+
                 sceneObjects[i].onCollide(sceneObjects[j])
                 sceneObjects[j].onCollide(sceneObjects[i])
             }
@@ -146,22 +150,22 @@ function doLogic(delta: number) {
     }
 
     maybeSpawnMeteor(delta)
+    //maybeSpawnMeteorChunk(delta)
 }
+
+// Used for debugging physics.
+// function maybeSpawnMeteorChunk(delta: number) {
+//     if ( Math.random() > 0.96 ) {
+//         let chunk = new MeteorChunk(new Vector3(0, 0, -10))
+//         chunk.velocity = randomVector().multiplyScalar(3)
+
+//         addSceneObject(chunk)
+//     }
+// }
 
 function maybeSpawnMeteor(delta: number) {
-    if ( Math.random() * delta > 0.004 ) {
+    if ( Math.random() > 0.90 ) {
         addSceneObject(new Meteor())
-    }
-}
-
-/** Fix stuff that is outside the bounds of the map. This is not
- * actually how a real physics engine would do it, but we're not making
- * a real physics engine. */
-function handleGoneObjects() {
-    for(let i = sceneObjects.length-1; i >= 0; i--) {
-        if (sceneObjects[i].getPositionRef().y < -10) {
-            sceneObjects[i].getPositionRef().setY(-10 + (sceneObjects[i].size / 2))
-        }
     }
 }
 

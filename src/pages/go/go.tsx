@@ -1,4 +1,4 @@
-import { Reference } from "../components/body/reference/reference";
+import { Reference } from "../../components/body/reference/reference";
 
 export function GoPage() {
     return (

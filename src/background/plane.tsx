@@ -7,17 +7,14 @@ interface Props {
 }
 
 export function Plane(props: Props) {
-  const meshRef = useRef<Mesh>(null)
-  props.sceneObject.mesh = meshRef
+  props.sceneObject.mesh = useRef<Mesh>(null)
 
   return (
     <mesh
       key={props.sceneObject.objectID}
       castShadow
-      rotation={new Euler()}
-      position={new Vector3()}
       receiveShadow
-      ref={meshRef}>
+      ref={props.sceneObject.mesh}>
       <planeGeometry args={[props.sceneObject.size, props.sceneObject.size/2]} />
       <meshLambertMaterial color={'white'} />
     </mesh>

@@ -2,8 +2,8 @@ import './App.css';
 import { Header } from './components/header/header';
 import { Body } from './components/body/body';
 import React, { createContext, useState } from 'react';
-import { Background } from './components/background/background'; 
-import { Page } from './pages/page';
+import { Background } from './background/background'; 
+import { Page } from './pages/pagecontroller';
 import { GetPage } from './pages/pagecontroller';
 
 interface CurrentPageContextType {

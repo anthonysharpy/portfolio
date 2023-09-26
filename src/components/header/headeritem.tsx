@@ -1,5 +1,5 @@
 import './headeritem.css'
-import { Page } from "../../pages/page";
+import { Page } from "../../pages/pagecontroller";
 import { useContext } from 'react';
 import { CurrentPageContext } from '../../App';
 import { GetPage } from '../../pages/pagecontroller';
