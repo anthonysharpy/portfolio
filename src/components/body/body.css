@@ -34,6 +34,25 @@ h2 {
     text-align: center;
 }
 
+h3 {
+    font-weight: normal;
+    text-align: center;
+}
+
+.caption {
+    font-weight: normal;
+    text-align: center;
+    font-style: italic;
+    margin: 0.5em;
+    font-size: 1.3em;
+}
+
+video {
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
 code {
     background-color: rgb(75, 75, 75);
     border-radius: 0.2em;
@@ -66,7 +85,13 @@ pre code {
 
 img {
     display: block;
-    margin: 0 auto;
+    margin: 3em auto;
+    max-width: 90%;
+}
+
+.styled-image {
+    border-radius: 2em;
+    box-shadow: 1em 1em 1em rgb(176, 176, 176);
 }
 
 .centered {

@@ -1,11 +1,10 @@
 import React, { ReactNode, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import './background.css'
-import { degreesToRadians, randomVector } from '../helpers/mathhelpers'
+import { degreesToRadians } from '../helpers/mathhelpers'
 import { Euler, Vector3 } from 'three'
 import { ObjectType, SceneObject } from './sceneobject'
 import { SoftShadows } from '@react-three/drei'
-import { MeteorChunk } from './meteorchunk'
 import { CollisionHandler } from './collisionhandler'
 import { Meteor } from './meteor'
 

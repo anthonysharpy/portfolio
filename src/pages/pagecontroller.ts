@@ -12,7 +12,7 @@ export class Page {
 export const Routes = [
     new Page("home", "Home", HomePage()),
     new Page("go", "Go", GoPage()),
-    // Page("csharp", "C#", CSharpPage()),
+    new Page("csharp", "C#", CSharpPage()),
     new Page("react", "React/Angular", ReactPage()),
     new Page("about", "About", AboutPage()),
     new Page("contact", "Contact", ContactPage()),
