@@ -4,6 +4,7 @@ import { HomePage } from "./home/home"
 import { ReactPage } from "./react/react"
 import { AboutPage } from "./about/about"
 import { ContactPage } from "./contact/contact"
+import { CCPlusPlusPage } from "./cplusplus/ccplusplus"
 
 export class Page {
     constructor(public identifer: string, public title: string, public content: React.JSX.Element) {}
@@ -16,7 +17,7 @@ export const Routes = [
     new Page("react", "React/Angular", ReactPage()),
     new Page("about", "About", AboutPage()),
     new Page("contact", "Contact", ContactPage()),
-    //new Page("ccplusplus", "C/C++", CCPlusPlusPage())
+    new Page("ccplusplus", "C/C++", CCPlusPlusPage())
 ]
 
 export function GetPage(pageIdentifier: string): Page {
