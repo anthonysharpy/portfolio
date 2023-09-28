@@ -1,7 +1,7 @@
 .content-container {
     background-color: rgb(255, 255, 255);
     width: 60vw;
-    margin: 0 auto;
+    margin: 0 auto 3em auto;
     min-height: 10em;
     border-radius: 2em;
     padding: 1em 4em 3em 4em;
@@ -9,6 +9,7 @@
     color: rgb(85, 85, 85);
     line-height: 2em;
     border: solid black 2px;
+    overflow-wrap: break-word;
 }
 
 p {
@@ -44,8 +45,13 @@ h3 {
     font-weight: normal;
     text-align: center;
     font-style: italic;
-    margin: 0.5em;
+    margin: 2em 0.5em 0.5em 0.5em;
     font-size: 1.3em;
+}
+
+iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
 }
 
 video {
@@ -61,6 +67,7 @@ code {
     color: rgb(211, 211, 211);
     margin: 0 0.1em;
     font-size: 0.8em;
+    overflow: scroll;
 }
 
 pre.normal-pre {
@@ -87,7 +94,7 @@ pre code {
 img {
     display: block;
     margin: 3em auto;
-    max-width: 90%;
+    max-width: 100%;
 }
 
 .styled-image {
@@ -97,4 +104,8 @@ img {
 
 .centered {
     text-align: center;
+}
+
+svg {
+    overflow: visible;
 }

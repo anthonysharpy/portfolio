@@ -3,11 +3,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-wrap: anywhere;
 }
 
 .contact-row p {
-    white-space-collapse: preserve;
     margin: 0.2em 0;
+}
+
+.contact-row svg {
+    margin-right: 0.3em;
 }
 
 .contact-row:hover svg {

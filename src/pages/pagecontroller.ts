@@ -15,9 +15,9 @@ export const Routes = [
     new Page("go", "Go", GoPage()),
     new Page("csharp", "C#", CSharpPage()),
     new Page("react", "React/Angular", ReactPage()),
+    new Page("ccplusplus", "C/C++", CCPlusPlusPage()),
     new Page("about", "About", AboutPage()),
     new Page("contact", "Contact", ContactPage()),
-    new Page("ccplusplus", "C/C++", CCPlusPlusPage())
 ]
 
 export function GetPage(pageIdentifier: string): Page {
