@@ -11,11 +11,7 @@ export const Header: React.FC<{}> = () => {
         <>
             <p className="centered name">Anthony Sharp</p>
             <div className="header-container">
-                {Routes.map(x =>
-                    <>
-                        <HeaderItem key={x.identifer} pageName={x.title} pageIdentifier={x.identifer}/>
-                    </>
-                )}
+                {Routes.map(x => <HeaderItem key={x.identifer} pageName={x.title} pageIdentifier={x.identifer}/>)}
             </div>
         </>
     );

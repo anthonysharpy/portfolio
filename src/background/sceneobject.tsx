@@ -37,11 +37,11 @@ export class SceneObject {
     private getElement() {
         switch(this.type) {
             case ObjectType.Cube:
-                return <Box sceneObject={this}/>
+                return <Box key={this.objectID} sceneObject={this}/>
             case ObjectType.Plane:
-                return <Plane sceneObject={this}/>
+                return <Plane key={this.objectID} sceneObject={this}/>
             case ObjectType.Sphere:
-                return <Sphere sceneObject={this}/>
+                return <Sphere key={this.objectID} sceneObject={this}/>
         }
     }
 
