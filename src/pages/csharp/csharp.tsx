@@ -32,6 +32,8 @@ export function CSharpPage() {
             <p>Basically you would add functions to the flying droid (let's call them "nodes"). Some of these nodes were logical primitives like "and", "or", "not", etcetera. Others would allow the droid to interact with the world - for example, there's one called GetClosestEnemy. Once you programmed the droid by joining all the nodes together, it performed the actions as instructed. For this I had to make a routine that would parse the graph and perform all the logic on it, which was actually quite fun.</p>
             <img className="styled-image" src="images/graphical_programming_2.png"></img>
             <img className="styled-image" src="images/graphical_programming_1.jpg"></img>
+            <p>Another cool thing I did for that game was write some code that would chop meshes in half along a plane:</p>
+            <img className="styled-image" src="images/mesh_cut_in_half.png"></img>
         </>
     )
 }

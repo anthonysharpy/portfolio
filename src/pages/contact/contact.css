@@ -17,4 +17,5 @@
 .contact-row:hover svg {
     color: rgb(113, 57, 141);
     transform: rotate(10deg);
+    filter: drop-shadow(0.1em 0.1em 0.1em rgba(113, 57, 141, 0.5));
 }

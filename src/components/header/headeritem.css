@@ -7,19 +7,14 @@
 
 .header-item:hover {
     cursor: pointer;
-    filter: brightness(110%);
-    text-shadow: 0px 0px 20px rgb(255, 255, 255), 5px 5px 5px rgba(0, 0, 0, 0.25);
-    transform: translateY(-0.1em);
 }
 
 /* Forgive me. Stupid hack to simulate non-moving bold text, font-weight can't do this.*/
-.active {
+.header-item:hover, .active {
     text-decoration: underline;
     text-underline-offset: 0.3em;
     color: rgb(255, 255, 255);
-    text-shadow: 0px 0px 2px rgb(255, 255, 255), 0px 0px 2px rgb(255, 255, 255), 0px 0px 2px rgb(255, 255, 255), 5px 5px 5px rgba(0, 0, 0, 0.25); 
-}
-
-.active:hover {
-    text-shadow: 0px 0px 2px rgb(255, 255, 255), 0px 0px 2px rgb(255, 255, 255), 0px 0px 2px rgb(255, 255, 255),0px 0px 20px rgb(255, 255, 255), 5px 5px 5px rgba(0, 0, 0, 0.25);
+    transform: translateY(-0.1em);
+    filter: brightness(110%);
+    text-shadow: 0px 0px 20px rgb(255, 255, 255), 5px 5px 5px rgba(0, 0, 0, 0.363), 0px 0px 2px rgb(255, 255, 255), 0px 0px 2px rgb(255, 255, 255), 0px 0px 2px rgb(255, 255, 255), 5px 5px 5px rgba(0, 0, 0, 0.25); 
 }
