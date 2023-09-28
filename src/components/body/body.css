@@ -73,8 +73,7 @@ code {
 pre.normal-pre {
     background-color: rgb(222, 222, 222);
     color: black;
-    display: inline-block;
-    width: 100%;
+    display: block;
     border-left: solid rgb(195, 195, 195) 0.5em;
     padding: 0.5em 0.5em 0.5em 1em;
     line-height: 1.5em;
