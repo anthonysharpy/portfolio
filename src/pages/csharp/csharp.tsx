@@ -9,7 +9,7 @@ export function CSharpPage() {
             <video controls><source src="videos/blazor_site_1.mp4"/></video>
             <h2>S&box City</h2>
             <p>S&box City is a gamemode I've been working on for over a year now developed in the s&box games engine. The entire thing is pretty much coded from scratch, including the players, vehicles, NPCs, weapons, entities, persistence, etcetera, although I have borrowed a bit of code from the makers of the engine here and there.</p>
-            <p><i>"Is this really something that shows off your C# skills?"</i>. I mean - sure - it's not <i>"This is my example of a basic REST API coded in C# using a tutorial that I found on the internet"</i>, like you might see in some places. But I would say the answer is definitely yes! Here's why:</p>
+            <p><i>"Is this really something that shows off your C# skills?"</i>. I mean - sure - it's not <i>"This is my example of a basic REST API coded in C# using a tutorial that I found on the internet"</i>. But I would say the answer is definitely yes! Here's why:</p>
             <ul>
                 <li>I've been working on it for over a year now - that shows super-duper work ethic!</li>
                 <li>The codebase has grown to be tens of thousands of lines long and has 200+ code files, which has required good project management skills.</li>
