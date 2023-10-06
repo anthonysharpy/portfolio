@@ -21,7 +21,7 @@ export function AboutPage() {
             <h3>Still learning!</h3>
             <p className="centered point-explanation">I'm still learning, and will be for the rest of my life (I'm also always forgetting, but that's a different story...). Is there something in your tech stack that I don't know? Give me two days and I'll learn it. Want to try out a new piece of tech that the company has never used before? No problem, I'll have a prototype ready by tomorrow! A lot of people are scared of trying new things, but for me it's just part of the journey that I enjoy.</p>
             <h3>Integrity and honesty</h3>
-            <p className="centered point-explanation">I have strong morals and always try to do what's right. I would rather being honest make me the world's most hated person than be adored for being a fraud.</p>
+            <p className="centered point-explanation">I have strong morals and always try to do what's right. I would rather being honest make me the world's most hated person than be adored for being a fraud. But I'm just weird like that.</p>
         </div>
     )
 }
