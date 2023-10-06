@@ -31,7 +31,7 @@ export function CSharpPage() {
             <p className="caption">Destructible doors</p>
             <video controls><source src="videos/lamerp1.mp4"/></video>
             <h2>Graphical coding system</h2>
-            <p>Something cool I made just back in 2017 was this graphical programming system for a game I was working on. Yes, I know 2017 was a really long time ago (Brexit hadn't even happened yet!), but I just think it's really cool!</p>
+            <p>Something cool I made back in 2017 was this graphical programming system for a game I was working on. Yes, I know 2017 was a really long time ago (Brexit hadn't even happened yet!), but I just think it's really cool!</p>
             <p>Basically you would add functions to the flying droid (let's call them "nodes"). Some of these nodes were logical primitives like "and", "or", "not", etcetera. Others would allow the droid to interact with the world - for example, there's one called GetClosestEnemy. Once you programmed the droid by joining all the nodes together, it performed the actions as instructed. For this I had to make a routine that would parse the graph and perform all the logic on it, which was actually quite fun.</p>
             <img className="styled-image" src="images/graphical_programming_2.png"></img>
             <img className="styled-image" src="images/graphical_programming_1.jpg"></img>

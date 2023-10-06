@@ -3,13 +3,13 @@ import { Reference } from "../../components/body/reference/reference";
 export function GoPage() {
     return (
         <>
-            <p>Go is my favourite programming language. It's fast, (relatively) low-level, reliable, has a great standard library for modern development tasks like running servers and doesn't come with all the nonsense that languages like C++ do. I first started using it back in 2017 in order to replace the lousy PHP server I made for my law app. Since then I've mostly used it for making REST APIs, but have also used it for other things like making bots and graphical applications.</p>
+            <p>Go is my favourite programming language. It's fast, (relatively) low-level, reliable, has a great standard library for modern development tasks like running servers and doesn't come with all the nonsense that languages like C++ do. I first started using it back in 2017 in order to replace the PHP server I made for my law app. Since then I've mostly used it for making REST APIs, but have also used it for other things like making bots and graphical applications.</p>
             <p>I'm going to go over some of my favourite Go tips and tricks, the idea being that hopefully I will say something intelligent along the way.</p>
             <h2>Safe(r) concurrency with getters and setters</h2>
             <p>I had an interview a few years ago for a Go job. The interviewers were sceptical of me, as I had no commercial experience of Go at the time. To be honest, I'm not really sure why they offered to interview me, since I don't think they had any intention of giving me the job.</p>
             <p>One of the things they said was <i>"So, well, have you for example used things like concurrency in Go?"</i>. I said that I hadn't, but that I had done it in other languages, and said I didn't imagine it would be too hard. They laughed and said <i>"Yeah, right"</i>.</p>
             <p>So, were they right about concurrency being hard? Well, no, they were just jerks. But they were right insofar as to say that concurrency is not always <em>easy</em>. If you don't respect it, it <em>will</em> come back and bite you. Like an American Bully XL. The same is true for probably any programming language.</p>
-            <p>So what are some ways I like to tame the beast that is concurrency (specifically, concurrent access)? Well, personally, I think implementing getters and setters is actually a perfect way to guard concurrent access. For example:</p>
+            <p>So what are some ways I like to tame the beast that is concurrency (specifically, concurrent access)? Well, personally, as much as I hate them in just about any other context, I think implementing getters and setters is actually a perfect way to guard concurrent access. For example:</p>
             <pre>
                 <code>{`type SomeState struct {
     exampleMap map[string]struct{}
@@ -57,7 +57,7 @@ func main() {
             </pre>
             <p>By using getters and setters we can completely forget about having to lock and unlock the resource. It's all done for us. This results in fewer mistakes and fewer bugs! Not only that, but we didn't have to pollute our code with <code>.Lock()</code> and <code>.Unlock()</code> everywhere. Notice also how both the lock and the protected value exist as unexported fields in a struct. This adds an extra layer of security as you can't modify the value directly even if you want to!</p>
             <h2>Functional programming patterns</h2>
-            <p>When I moved from C# to Go, one of the things I really missed was LINQ's ability to perform operations on collections of objects - things like <code>.Where()</code>, <code>.Any()</code>, <code>.Select()</code>, etcetera.</p>
+            <p>When I moved from C# to Go, one of the things I really missed was LINQ's ability to perform operations on collections of objects - things like <code>.Where()</code>, <code>.Any()</code>, <code>.Select()</code>, etcetera. These kinds of patterns are the bread-and-butter of functional programming languages like Elixir, but for some reason they have become more and more common in procedural and object-oriented programming languages too. Probably because they are great.</p>
             <p>Unfortunately, Go does not currently allow the "=&gt;" syntax for anonymous functions (although there is community support for it<Reference number={1}/>). However, you can still more or less achieve the same behaviour as C#.</p>
             <p>Let's say we have a slice of type <code>FoodOrder</code>. Each <code>FoodOrder</code> describes something that's been ordered at a restaurant. Let's also define a type <code>Food</code>, which describes the (tasty) outcome of a <code>FoodOrder</code>.</p>
             <pre>
@@ -106,7 +106,7 @@ func main() {
 
     return food
 }`}</code></pre>
-            <p>My preferred approach is to implement a function that does all the heavy lifting for you:</p>
+            <p>My preferred approach is to implement a generic function that does all the heavy lifting for you:</p>
             <pre><code>{`func Transform[T interface{}, X interface{}](array []T, transform func(T) X) []X {
     result := make([]X, len(array))
     

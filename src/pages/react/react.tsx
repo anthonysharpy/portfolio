@@ -8,7 +8,7 @@ export function ReactPage() {
                 <li><a href="https://quotes.insuremystuff4less.com/taxi/vehicle" target="_blank">https://quotes.insuremystuff4less.com/taxi/vehicle</a></li>
             </ul>
             <p>Obviously not all of that was made by me, and it's changed slightly since I worked there (but not much).</p>
-            <p>I also used Vue.js/Laravel in a commercial setting for one and a half years.</p>
+            <p>I also used Vue.js/Laravel in a commercial setting for one and a half years, working on an internal corporate system.</p>
             <h2>Site layout</h2>
             <p>I opted for a single-page website since not only is this much simpler, but it also makes the site feel more responsive (And unique!). This probably isn't a good idea for more complicated sites, since downloading and rendering the whole thing at once could make the initial page load too long. Also, having everything on one page likely harms search-engine optimisation, and makes it trickier to share a page with someone else by copy-pasting the URL. But it works nicely on simple sites like mine.</p>
             <p>I wanted a simple and modern layout that was easy to navigate and that conveyed an upbeat and positive message, whilst also being unique and a bit show-offy. The site is optimised for desktop but has also been designed to display correctly on mobile and tablet. I chose not to minify the CSS etc since I want people to be able to see the good (and bad) design decisions I have made.</p>
