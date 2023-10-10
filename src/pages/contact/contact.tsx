@@ -11,7 +11,7 @@ export function ContactPage() {
                 <Icon icon="ic:round-email"/><p>{"anthonysharp15@gmail.com"}</p>
             </div>
             <div className="contact-row">
-                <Icon icon="icon-park-solid:i-mac"/><p><a href="https://www.linkedin.com/in/anthony-sharpy/" target="_blank">https://www.linkedin.com/in/anthony-sharpy/</a></p>
+                <Icon icon="icon-park-solid:i-mac"/><p><a href="https://www.linkedin.com/in/anthony-sharpy/" rel="noreferrer" target="_blank">https://www.linkedin.com/in/anthony-sharpy/</a></p>
             </div>
         </>
     )

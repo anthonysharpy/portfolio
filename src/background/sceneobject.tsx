@@ -1,5 +1,5 @@
 import { RefObject } from "react";
-import { Euler, Mesh, Scene, Vector3 } from "three";
+import { Color, Euler, Mesh, Vector3 } from "three";
 import { Box } from "./box";
 import { CollisionHandler, CubeCollisionHandler, PlaneCollisionHandler, SphereCollisionHandler } from "./collisionhandler";
 import { Plane } from "./plane";
@@ -26,7 +26,7 @@ export class SceneObject {
     private position: Vector3 = new Vector3() // We need to store these as well because the mesh ref might be null (and so we cant always access them there)
     private rotation: Euler = new Euler()
 
-    constructor(public type: ObjectType, public size: number, public velocity: Vector3, objectName: string) {
+    constructor(public type: ObjectType, public size: number, public velocity: Vector3, objectName: string, public colour: Color) {
         this.objectID = crypto.randomUUID()
         this.objectName = objectName
         this.spawnedAt = Date.now()

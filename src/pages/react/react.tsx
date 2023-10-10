@@ -1,13 +1,13 @@
 export function ReactPage() {
     return (
         <>
-            <p>This website is built in React; here it is: <a href="https://github.com/anthonysharpy/portfolio" target="_blank">https://github.com/anthonysharpy/portfolio</a> 😁</p>
+            <p>This website is built in React, <a href="https://github.com/anthonysharpy/portfolio" rel="noreferrer" target="_blank">here's the source code for it</a> 😁</p>
             <p>I actually have more experience using Angular, but since React is a lot more common, React it was! However, I worked for a year with Angular (version 7 I think it was). Here are some examples of the sorts of things I worked on:</p>
             <ul>
-                <li><a href="https://quotes.insuremystuff4less.com/static/caravan" target="_blank">https://quotes.insuremystuff4less.com/static/caravan</a></li>
-                <li><a href="https://quotes.insuremystuff4less.com/taxi/vehicle" target="_blank">https://quotes.insuremystuff4less.com/taxi/vehicle</a></li>
+                <li><a href="https://quotes.insuremystuff4less.com/static/caravan" rel="noreferrer" target="_blank">https://quotes.insuremystuff4less.com/static/caravan</a></li>
+                <li><a href="https://quotes.insuremystuff4less.com/taxi/vehicle" rel="noreferrer" target="_blank">https://quotes.insuremystuff4less.com/taxi/vehicle</a></li>
             </ul>
-            <p>Obviously not all of that was made by me, and it's changed slightly since I worked there (but not much).</p>
+            <p>Obviously not all of that was made by me, and it's changed slightly since I worked there, but not much.</p>
             <p>I also used Vue.js/Laravel in a commercial setting for one and a half years, working on an internal corporate system.</p>
             <h2>Site layout</h2>
             <p>I opted for a single-page website since not only is this much simpler, but it also makes the site feel more responsive (And unique!). This probably isn't a good idea for more complicated sites, since downloading and rendering the whole thing at once could make the initial page load too long. Also, having everything on one page likely harms search-engine optimisation, and makes it trickier to share a page with someone else by copy-pasting the URL. But it works nicely on simple sites like mine.</p>
@@ -18,7 +18,7 @@ export function ReactPage() {
             <p></p>
             <h2>The background</h2>
             <p>The scene in the background is dynamically generated and rendered. The scene is essentially a number of cubes spawning randomly (I like to pretend they're meteors) that explode into pieces when collided with.</p>
-            <p>The scene relies on a rudimentary gameplay loop that processes physics and object-specific logic. Scene state is stored in the <code>Background</code> component. All scene objects derive from a <code>SceneObject</code> base class in order to keep things uniform. For example, each object has a <code>mesh</code>, <code>velocity</code>, <code>angularVelocity</code>, <code>rotation</code> and <code>position</code>, among other characteristics. Physics behaviour is abstracted into its own <code>CollisionHandler</code> base class which is further extended for each shape type.</p>
+            <p>The scene relies on a rudimentary gameplay loop that processes physics and object-specific logic. Scene state is stored in the <code>SceneState</code> class. All scene objects derive from a <code>SceneObject</code> base class in order to keep things uniform. For example, each object has a <code>mesh</code>, <code>velocity</code>, <code>angularVelocity</code>, <code>rotation</code> and <code>position</code>, among other characteristics. Physics behaviour is abstracted into its own <code>CollisionHandler</code> base class which is further extended for each shape type.</p>
             <p>I created the collision logic myself. It's nothing too fancy - just a bunch of spheres and a floor. But it is kinda cool in that we get to simulate things like gravity and drag. I would have made the scene more intense, but in the end no amount of micro-optimisation could fix the slow, interpreted, single-core disappointment that is JavaScript.</p>
         </>
     )

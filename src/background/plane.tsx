@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
-import { Euler, Mesh, Vector3 } from 'three'
+import { Mesh } from 'three'
+import { SceneState } from './background'
 import { SceneObject } from './sceneobject'
 
 interface Props {
@@ -16,7 +17,7 @@ export function Plane(props: Props) {
       receiveShadow
       ref={props.sceneObject.mesh}>
       <planeGeometry args={[props.sceneObject.size, props.sceneObject.size/2]} />
-      <meshLambertMaterial color={'white'} />
+      <meshLambertMaterial color={SceneState.currentPageInfo.floorColour} />
     </mesh>
   )
 }

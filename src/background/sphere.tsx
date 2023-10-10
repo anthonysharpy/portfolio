@@ -16,7 +16,7 @@ export function Sphere(props: Props) {
       castShadow
       receiveShadow>
       <sphereGeometry args={[props.sceneObject.size/2]} />
-      <meshLambertMaterial color={'red'} />
+      <meshLambertMaterial color={props.sceneObject.colour} />
     </mesh>
   )
 }

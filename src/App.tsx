@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
       <CurrentPageContext.Provider value={{currentPage, setCurrentPage}}>
-        <Background/>
+        <Background pageInfo={currentPage} />
         <Header/>
         <Body/>
       </CurrentPageContext.Provider>

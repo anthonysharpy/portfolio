@@ -16,7 +16,7 @@ export function Box(props: Props) {
       castShadow
       receiveShadow>
       <boxGeometry args={[props.sceneObject.size, props.sceneObject.size, props.sceneObject.size]} />
-      <meshLambertMaterial color={'white'} />
+      <meshLambertMaterial color={props.sceneObject.colour} />
     </mesh>
   )
 }

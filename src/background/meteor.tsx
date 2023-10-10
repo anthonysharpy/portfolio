@@ -1,6 +1,6 @@
 import { Vector3 } from "three";
 import { ObjectType, SceneObject } from "./sceneobject";
-import { addSceneObject, deleteSceneObject } from "./background";
+import { addSceneObject, deleteSceneObject, SceneState } from "./background";
 import { MeteorChunk } from "./meteorchunk";
 import { randomVector } from "../helpers/mathhelpers";
 
@@ -8,7 +8,7 @@ export class Meteor extends SceneObject {
     constructor() {
         let spawnOnLeftHandSide = Math.random() >= 0.5
 
-        super(ObjectType.Cube, 10, new Vector3(spawnOnLeftHandSide ? 150 : -150, 0, 0), "meteor")
+        super(ObjectType.Cube, 10, new Vector3(spawnOnLeftHandSide ? 150 : -150, 0, 0), "meteor", SceneState.currentPageInfo.meteorColour)
 
         this.setPosition(new Vector3(spawnOnLeftHandSide ? -1000 : 1000, Math.random() * 200, Math.random() * -500))
         this.affectedByDrag = false
