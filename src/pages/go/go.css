@@ -1,0 +1,11 @@
+.go-page-content iframe {
+    display: block;
+    height: 750px;
+    margin: auto;
+    aspect-ratio: unset;
+    border: none;
+    box-shadow:  rgba(0, 0, 0, 0.5) 0.7em 0.7em 1em;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    border-radius: 1em;
+}

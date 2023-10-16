@@ -1,0 +1,17 @@
+html {
+    scrollbar-color: rgb(50, 50, 50);
+    scrollbar-width: 12px;
+    scrollbar-track-color: white;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+  
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(50, 50, 50);
+}
