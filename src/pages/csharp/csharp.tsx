@@ -3,10 +3,20 @@ export function CSharpPage() {
         <>
             <p>If you want to jump straight to a simple example of the sort of C# code I can write, see <a href="https://github.com/anthonysharpy/battleships" rel="noreferrer" target="_blank">here</a>.</p>
             <p>Please see my <a href="/files/Anthony Sharp - CV September 2023.pdf" rel="noreferrer" target="_blank">CV</a> for a quick run-down of the kinds of commercial experience I have with C#.</p>
-            <p>I started using C# back in 2014. Making games in Unity is what got me into it originally. The rest of this is just going to be me talking about some of the personal projects I've done in C# 😁</p>
+            <p>I started using C# back in 2014. Making games in Unity is what got me into it originally. The rest of this is just going to be me talking about some of the personal projects I've done in C# 😁</p>            
             <h2>Blazor Server dashboard site</h2>
             <p>Below you can see a demonstration of a Blazor Server dashboard website I put together in a weekend. It's designed to be a hypothetical example of how you could use Blazor Server to create an internal dashboard for a company. You can find the code for it <a href="https://github.com/anthonysharpy/blazor-dashboard" rel="noreferrer" target="_blank">here</a>.</p>
             <video controls><source src="videos/blazor_site_1.mp4"/></video>
+            <h2>Sandbank</h2>
+            <p>Sandbank is a MongoDB-like database I created for the game engine s&box. s&box doesn't support any databases out-of-the-box, so your only option is to manually write files to disk, or to host your own API that can communicate with a database for you. Both of those are obviously not great solutions, especially for new developers, so I created this project to help make everyone's lives easier. Some features at a glance:</p>
+            <ul>
+                <li><b>Thread-safe</b>: you can have as many threads as you want writing to or reading from the database at the same time, especially if you're looking for a performance boost.</li>
+                <li><b>Fast</b>: you can insert up to 560,000 documents per second and search up to ~4.5 million documents per second, using predicates.</li>
+                <li><b>Easy to install</b>: just copy and paste the code folder into your project and you're done.</li>
+                <li><b>Easy to use</b>: the entire front-facing API is documented thoroughly and the pros and cons of changing any of the configuration options are clearly explained to the user in plain English.</li>
+                <li><b>Lighteight</b>: Store thousands of documents in just a couple of megabytes.</li>
+            </ul>
+            <p>You can find the code for it <a href="https://github.com/anthonysharpy/sandbank" rel="noreferrer" target="_blank">here</a>.</p>
             <h2>S&box City</h2>
             <p>S&box City is a gamemode I've been working on for over a year now developed in the s&box games engine. The entire thing is pretty much coded from scratch, including the players, vehicles, NPCs, weapons, entities, persistence, etcetera, although I have borrowed a bit of code from the makers of the engine here and there.</p>
             <p><i>"Is this really something that shows off your C# skills?"</i>. I mean - sure - it's not <i>"This is my example of a basic REST API coded in C# using a tutorial that I found on the internet"</i>. But I would say the answer is definitely yes! Here's why:</p>
