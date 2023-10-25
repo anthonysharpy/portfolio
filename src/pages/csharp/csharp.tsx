@@ -14,7 +14,7 @@ export function CSharpPage() {
                 <li><b>Fast</b>: you can insert up to 560,000 documents per second and search up to ~4.5 million documents per second, using predicates.</li>
                 <li><b>Easy to install</b>: just copy and paste the code folder into your project and you're done.</li>
                 <li><b>Easy to use</b>: the entire front-facing API is documented thoroughly and the pros and cons of changing any of the configuration options are clearly explained to the user in plain English.</li>
-                <li><b>Lighteight</b>: Store thousands of documents in just a couple of megabytes.</li>
+                <li><b>Lightweight</b>: store thousands of documents in just a couple of megabytes.</li>
             </ul>
             <p>You can find the code for it <a href="https://github.com/anthonysharpy/sandbank" rel="noreferrer" target="_blank">here</a>.</p>
             <h2>S&box City</h2>
