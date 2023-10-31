@@ -1,8 +1,8 @@
 export function CSharpPage() {
     return (
         <>
-            <p>If you want to jump straight to a simple example of the sort of C# code I can write, see <a href="https://github.com/anthonysharpy/battleships" rel="noreferrer" target="_blank">here</a>.</p>
-            <p>Please see my <a href="/files/Anthony Sharp - CV September 2023.pdf" rel="noreferrer" target="_blank">CV</a> for a quick run-down of the kinds of commercial experience I have with C#.</p>
+            <p>If you want to jump straight to a boring, simple example of the sort of C# code I can write, see <a href="https://github.com/anthonysharpy/battleships" rel="noreferrer" target="_blank">here</a>.</p>
+            <p>Please see my <a href="/files/Anthony Sharp - CV November 2023.pdf" rel="noreferrer" target="_blank">CV</a> for a quick run-down of the kinds of commercial experience I have with C#.</p>
             <p>I started using C# back in 2014. Making games in Unity is what got me into it originally. The rest of this is just going to be me talking about some of the personal projects I've done in C# 😁</p>            
             <h2>Blazor Server dashboard site</h2>
             <p>Below you can see a demonstration of a Blazor Server dashboard website I put together in a weekend. It's designed to be a hypothetical example of how you could use Blazor Server to create an internal dashboard for a company. You can find the code for it <a href="https://github.com/anthonysharpy/blazor-dashboard" rel="noreferrer" target="_blank">here</a>.</p>
@@ -11,7 +11,7 @@ export function CSharpPage() {
             <p>Sandbank is a MongoDB-like database I created for the game engine s&box. s&box doesn't support any databases out-of-the-box, so your only option is to manually write files to disk, or to host your own API that can communicate with a database for you. Both of those are obviously not great solutions, especially for new developers, so I created this project to help make everyone's lives easier. Some features at a glance:</p>
             <ul>
                 <li><b>Thread-safe</b>: you can have as many threads as you want writing to or reading from the database at the same time, especially if you're looking for a performance boost.</li>
-                <li><b>Fast</b>: you can insert up to 560,000 documents per second and search up to ~4.5 million documents per second, using predicates.</li>
+                <li><b>Fast</b>: you can insert up to 560,000 documents per second and search up to ~40 million documents per second, using predicates.</li>
                 <li><b>Easy to install</b>: just copy and paste the code folder into your project and you're done.</li>
                 <li><b>Easy to use</b>: the entire front-facing API is documented thoroughly and the pros and cons of changing any of the configuration options are clearly explained to the user in plain English.</li>
                 <li><b>Lightweight</b>: store thousands of documents in just a couple of megabytes.</li>
@@ -41,8 +41,8 @@ export function CSharpPage() {
             <p className="caption">Destructible doors</p>
             <video controls><source src="videos/lamerp1.mp4"/></video>
             <h2>Graphical coding system</h2>
-            <p>Something cool I made back in 2017 was this graphical programming system for a game I was working on. Yes, I know 2017 was a really long time ago (Brexit hadn't even happened yet!), but I just think it's really cool!</p>
-            <p>Basically you would add functions to the flying droid (let's call them "nodes"). Some of these nodes were logical primitives like "and", "or", "not", etcetera. Others would allow the droid to interact with the world - for example, there's one called GetClosestEnemy. Once you programmed the droid by joining all the nodes together, it performed the actions as instructed. For this I had to make a routine that would parse the graph and perform all the logic on it, which was actually quite fun.</p>
+            <p>Something I made back in 2017 was this graphical programming system for a game I was working on. Yes, I know 2017 was a really long time ago (Brexit hadn't even happened yet!), but I just think it's really cool!</p>
+            <p>Basically you would add functions to the flying droid (let's call these functions "nodes"). Some of these nodes were logical primitives like "and", "or", "not", etcetera. Others would allow the droid to interact with the world - for example, there's one called GetClosestEnemy. Once you programmed the droid by joining all the nodes together, it performed the actions as instructed. For this I had to make a routine that would parse the graph and perform all the logic on it, which was actually quite fun.</p>
             <img alt="A graphical programming system." className="styled-image" src="images/graphical_programming_2.png"></img>
             <img alt="A graphical programming system." className="styled-image" src="images/graphical_programming_1.jpg"></img>
             <p>Another cool thing I did for that game was write some code that would chop meshes in half along a plane:</p>
