@@ -3,7 +3,7 @@
     width: 60vw;
     margin: 0 auto 3em auto;
     min-height: 10em;
-    border-radius: 2em;
+    border-radius: 1em;
     padding: 1em 5% 3em 5%;
     box-shadow: rgba(0, 0, 0, 0.3) 1em 1em 1em;
     color: rgb(85, 85, 85);
@@ -14,6 +14,7 @@
 
 p {
     font-size: 1.1em;
+    margin: 1em 0;
 }
 
 li {
@@ -103,6 +104,14 @@ img {
 
 .centered {
     text-align: center;
+}
+
+.centered-justified p {
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    text-align-last: center;
 }
 
 svg {
