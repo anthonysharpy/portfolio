@@ -15,7 +15,8 @@ export class Page {
         public skyColour: Color,
         public floorColour: Color,
         public meteorColour: Color,
-        public ballColour: Color) {}
+        public ballColour: Color
+    ) {}
 }
 
 export const Routes = [
