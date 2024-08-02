@@ -26,7 +26,7 @@ export const Routes = [
     new Page("infrastructure", "Infrastructure and Hosting", InfrastructurePage(), new Color("rgb(234, 184, 241)"), new Color('white'), new Color('white'), new Color('#ffffff')),
     new Page("react", "React/Angular", ReactPage(), new Color("rgb(131, 171, 185)"), new Color('white'), new Color('white'), new Color('#4d7057')),
     new Page("ccplusplus", "C/C++", CCPlusPlusPage(), new Color("rgb(241, 132, 151)"), new Color('white'), new Color('white'), new Color('#745691')),
-    new Page("workexperience", "Work Experience", WorkExperiencePage(), new Color("rgb(239, 177, 86)"), new Color('white'), new Color('white'), new Color('#eb8d6e')),
+    //new Page("workexperience", "Work Experience", WorkExperiencePage(), new Color("rgb(239, 177, 86)"), new Color('white'), new Color('white'), new Color('#eb8d6e')),
     new Page("contact", "Contact", ContactPage(), new Color("rgb(219, 117, 233)"), new Color('white'), new Color('white'), new Color('#986ee0')),
 ]
 
