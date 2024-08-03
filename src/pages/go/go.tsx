@@ -4,20 +4,42 @@ import './go.css';
 export function GoPage() {
     return (
         <div className="go-page-content">
-            <p>Go is my favourite programming language. It's fast, (relatively) low-level, has great error handling, has an awesome standard library for modern development tasks like running servers and doesn't come with all the nonsense that languages like C++ do. I first started using it back in 2017 in order to replace the PHP server I made for my law app. Since then I've mostly used it for making REST APIs, but have also used it for other things like making bots and graphical applications.</p>
-            <p>I'm going to go over some of my favourite Go tips and tricks, the idea being that hopefully I will say something intelligent along the way. But first let me introduce a cool project that I'm working on right now...</p>
-            <h2>YayOrNay</h2>
-            <p>YayOrNay is a novel dating app built in Go and Vue.js. Obviously I'm not really able to share the source code or give away the secret-sauce behind our algorithm. But I can speak geeky words at you about it.</p>
+            <p>Go is one of my favourite programming languages. It's fast, relatively low-level, has great error handling, has an awesome standard library for modern development tasks like running servers and doesn't come with all the headache that languages like C++ do.</p>
+            
+            <h2>Loan API</h2>
+            <p>I designed the Go API for our loan application service at my current job. Simply put, the API is designed to allow you to create and progress an application for a loan to completion. You can find the source code <a href="https://github.com/paymentassist/paymentassist-go" rel="noreferrer" target="_blank">here</a>.</p>
+
+            <h2>Profits API</h2>
+            <p>At my last job I designed a new Go API for our internal company dashboard. Around 70% of that development effort went towards developing systems for processing financial data; the API would consume bills, credits and rebates that were fed in from an external billing solution (InTime), convert them to GBP using the official monthly HMRC exchange rates, assign them to the correct consultant in accordance with the percentage split they were owed and produce a payout value that dictated the amount staff were paid in commission each month.
+
+            It would also output this data in the form of graphs that could be queried over a given time frame. Some reports would utilise tens of thousands of data points, yet still loaded in seconds due to careful use of caching.
+            
+            The API was also responsible for other things such as sending out emails, managing account permissions and processing CSV uploads.</p>
+
+            <h2>Dating App API</h2>
+            <p>I wrote the API for a dating app I created with a friend. The app handled authentication, authorisation, sending emails, serving app data, and of course, applying the matching algorithm.</p>
             <iframe src="https://yayornay.se"></iframe>
-            <p>We were impressed the other day to learn how capable our server is at the moment, even with our cheap, 2-virtual-CPU, 2GB-RAM DigitalOcean hosting. But first, let me explain our test setup. We have an integration tester that spins up a test database and a copy of the API to perform all kinds of whacky tests to make sure everything's working properly. I originally thought about making this integration tester in PowerShell, but in the end, I just made a fully-fledged Go program for it instead, since scripting is slow at the best of times (both to run and to develop), and the same thing in Go was only a hundred lines of code or so, not including the tests themselves.</p>
-            <p>Anyways, so in one of our tests we managed to spin up 5,000 concurrent WebSocket connections to the test API. Once we had done that, we sent out one message per WebSocket connection (each of which also involved multiple database calls, might I add!). Our goal: to send and receive a response for these 5,000 messages in under 10 seconds. The verdict? It completed in 2.5 seconds. Very nice! From this single test, it would seem that the server can handle roughly 2,000 WebSocket requests per second. But we have to bear in mind that not all our endpoints are WebSockets, and that obviously a connection over LAN with a test database is not indicative of real-world performance, so we have to take this with a grain of salt. But it gives us confidence that our server could likely handle 1,000-5,000 users active at the same time. Sure, it's not the next Facebook, but we do have a clear upgrade path if we need to increase the power of the server, and for $21/month, it's certainly not bad! So long as we stay under our 3 TB monthly data limit that is... although because of that we will be hosting things like images and videos elsewhere (likely using AWS S3).</p>
-            <p>It's been great working with MongoDB on this project. The tags feature in Go lets you easily map your structs to your documents. And you don't even need to create a schema for it. Just insert the data and it's there. Storing non-normalised objects as documents also just makes a lot of sense for a lot of use-cases, and often proves itself to be simpler (and occasionally faster) than the spaghetti data you can end up having with SQL databases. All that being said, MongoDB is an absolute pain to configure. Want to add a root user? Sorry, you have to shut the database off, disable authentication and restart it first! Want to enable transactions? Sorry, you have to shut the database off, configure a replica set and restart it first! Want to configure a replica set? Sorry, you have to create a keyfile first! Once you start to learn these quirks though, it's really not too bad.</p>
+            <p>I also set up all the testing and associated infrastructure. In particular we even had an integration tester as a separate Go program that spun up a test database (via Docker) and a copy of the API to perform all kinds of tests. I originally thought about making this integration tester in PowerShell, but since scripts are often both slow to run and develop, and since the same thing in Go was only a hundred lines of code or so, I decided against it.</p>
+            <p>The API itself was pretty powerful too. We had a 2-core server hosted on DigitalOcean. In one of our tests we managed to spin up 5,000 concurrent WebSocket connections to the test API. Once we had done that, we sent out one message per WebSocket connection (each of which also involved multiple database calls). Our goal: to send and then receive a response for these 5,000 messages in under 10 seconds. The verdict? It completed in 2.5 seconds. From this single test, it seemed that the server could handle roughly 2,000 WebSocket requests per second in ideal conditions.</p>
+            <p>This is not necessarily to do with Go but it was also great working with MongoDB on this project. Go's tags feature lets you easily map your structs to your documents. After that, you just insert the data and it appears in the database like magic.</p>
+
+            <h2>Other Uses</h2>
+            <p>Some other things I have used Go for include:</p>
+            <ul>
+                <li>I first started using Go back in 2017 in order to replace the PHP server I made for my law app.</li>
+                <li>Made a bot for a game along with its own graphical interface (for my amusement only).</li>
+            </ul>
+
+            <br/>
+            <hr></hr>
+            <h2>Go Tips And Tricks</h2>
+            <p>Given that I have more experience with Go now, I was going to delete this part. But I spent so much time on it that I thought it can't hurt to leave it in for a little while longer. </p>
 
             <h2>Safe(r) concurrent access with getters and setters</h2>
-            <p>I had an interview a few years ago for a Go job. I think the interviewers were a little bit sceptical of me, as I had no commercial experience of Go at the time. I'm grateful they did, but to be honest, I'm not really sure why they offered to interview me, since I don't think they really had any intention of giving me the job.</p>
+            <p>I had an interview a years ago for a Go job. I think the interviewers were a little bit sceptical of me, as I had no commercial experience of Go at the time. I'm grateful they did, but to be honest, I'm not really sure why they offered to interview me, since I don't think they really had any intention of giving me the job.</p>
             <p>With one eyebrow raised, I remember one of the things they said was <i>"So, well, have you for example used things like concurrency in Go?"</i>. I said that I hadn't, but that I had done it in other languages, and said I didn't imagine it would be too hard. They laughed and said <i>"Yeah, right"</i>.</p>
             <p>So, were they right about concurrency being hard? Well, no, they were just jerks. But they were right insofar as to say that concurrency is not always <em>easy</em>. If you don't respect it, it <em>will</em> come back and bite you. Like an American Bully XL. The same is true for probably any programming language.</p>
-            <p>So how <em>do</em> you deal with concurrency - specifically, concurrent access? Well, personally I think implementing getters and setters is actually a perfect way to guard concurrent access. For example:</p>
+            <p>So how <em>do</em> you deal with concurrency - specifically, concurrent access? Well, one cool way of guarding concurrent access is to encapsulate it behind getters and setters. For example:</p>
             <pre>
                 <code>{`type SomeState struct {
     exampleMap map[string]struct{}
@@ -172,7 +194,7 @@ func getNumberOfExpensiveOrders(orders []FoodOrder) int {
             <p>You may or may not know this (nobody seems to talk about it), but Go can actually have nested packages, which can be helpful for breaking-up cyclical dependencies whilst also keeping your project's folder structure squeaky-clean.</p>
             <p>Let me begin by explaining my approach to structuring a Go project. People don't like to admit it, but given that Go is such an opinionated language in just about every other regard, it's surprising how many ways you can structure a Go project. Like most people, I like to define packages so as to demarcate separations of responsibility. This is made useful by the fact that in Go, functions beginning with a lowercase letter are not visible outside of the package (unexported functions). This helps us interact with the outside world via our exported functions and types, whilst keeping all the implementation details hidden.</p>
             <p>Now let me follow that with a controversial opinion. I think most people would disagree with me, but the fact that Go doesn't allow cyclical dependencies is easily its worst feature. Of course, I understand the reasoning behind it - faster compile times (I'm not convinced by this, my complex C# game projects compile in ~5 seconds) and "better" code<Reference number={2}/>. It is often said that if you have cyclical dependencies, it's a symptom of you not having thought about your code structure properly. And while this is true in some cases, in others, I don't think this argument holds water.</p>
-            <p>Let me describe a real-world example I had the other day in the API for the dating app I'm currently working on.</p>
+            <p>Let me describe a real-world example I had in the API for the dating app I worked on.</p>
             <p>Below we have a cyclical dependency. <code>users.BlockUser()</code> is calling <code>matches.UnmatchUsers()</code>, which is calling <code>conversations.LeaveAllConversationsWithUser()</code>, which is somewhere using the <code>users.User</code> type defined in the users package.</p>
             <img alt="A cyclical dependency." src="images/cyclic_dependency_1.svg"></img>
             <p>Here's my point: this cyclical dependency isn't the result of bad code. Clearly, the layout of the code <em>has</em> been thought-out, with clear separation of concerns.</p>
@@ -187,7 +209,7 @@ func getNumberOfExpensiveOrders(orders []FoodOrder) int {
             <pre className="normal-pre">{`/users/users.go`}</pre>
             <p>We can refactor this into a nested package:</p>
             <pre className="normal-pre">{`/users/users.go\n/users/userstypes/userstypes.go`}</pre>
-            <p>userstypes becomes a new package. conversations can use it by importing <code>"myapp/m/v2/users/userstypes"</code>. And voilà! Not only do we keep a tidy project structure since we have not polluted our project root with unnecessary package folders, but we have broken the cyclical dependency.</p>
+            <p><code>userstypes</code> becomes a new package. <code>conversations</code> can use it by importing <code>"myapp/m/v2/users/userstypes"</code>. And voilà! Not only do we keep a tidy project structure since we have not polluted our project root with unnecessary package folders, but we have broken the cyclical dependency.</p>
             <img alt="A resolved cyclical dependency." src="images/cyclic_dependency_2.svg"></img>
             <h2>References</h2>
             <ol>
