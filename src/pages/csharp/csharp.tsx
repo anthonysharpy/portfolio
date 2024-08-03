@@ -1,12 +1,14 @@
 export function CSharpPage() {
     return (
         <>
-            <p>If you want to jump straight to a boring, simple example of the sort of C# code I can write, see <a href="https://github.com/anthonysharpy/battleships" rel="noreferrer" target="_blank">here</a>.</p>
-            <p>Please see my <a href="/files/Anthony Sharp - CV November 2023.pdf" rel="noreferrer" target="_blank">CV</a> for a quick run-down of the kinds of commercial experience I have with C#.</p>
-            <p>I started using C# back in 2014. Making games in Unity is what got me into it originally. The rest of this is just going to be me talking about some of the personal projects I've done in C# 😁</p>            
-            <h2>Blazor Server dashboard site</h2>
-            <p>Below you can see a demonstration of a Blazor Server dashboard website I put together in a weekend. It's designed to be a hypothetical example of how you could use Blazor Server to create an internal dashboard for a company. You can find the code for it <a href="https://github.com/anthonysharpy/blazor-dashboard" rel="noreferrer" target="_blank">here</a>.</p>
-            <video controls><source src="videos/blazor_site_1.mp4"/></video>
+            <p>I started using C# back in 2014. Making games in Unity is what got me into it originally, and actually a lot of my C# experience is games-related.</p>            
+            
+            <h2>Loan API</h2>
+            <p>I designed the C# API for our loan application service at my current job. Simply put, the API is designed to allow you to create and progress an application for a loan to completion. You can find the source code <a href="https://github.com/paymentassist/paymentassist-csharp" rel="noreferrer" target="_blank">here</a>.</p>
+
+            <h2>Backend insurance integrations</h2>
+            <p>At my first job I spent most of my time writing integrations for insurance companies on our C# backend. The purpose of these integrations was to take the data collected by us on our website about the customer, forward it onto the insurer in order to receive a quote, and then process the response back into a format that our system understood. I quite enjoyed this as it involved a lot of liasing with clients in order to ascertain their requirements. By the time I left I was responsible for more ongoing integrations than anyone else. I was even given extra work as some of the other developers were struggling with their workload.</p>
+
             <h2>Sandbank</h2>
             <p>Sandbank is a MongoDB-like database I created for the game engine s&box. s&box doesn't support any databases out-of-the-box, so your only option is to manually write files to disk, or to host your own API that can communicate with a database for you. Both of those are obviously not great solutions, especially for new developers, so I created this project to help make everyone's lives easier. Some features at a glance:</p>
             <ul>
@@ -17,6 +19,11 @@ export function CSharpPage() {
                 <li><b>Lightweight</b>: store thousands of documents in just a couple of megabytes.</li>
             </ul>
             <p>You can find the code for it <a href="https://github.com/anthonysharpy/sandbank" rel="noreferrer" target="_blank">here</a>.</p>
+
+            <h2>Blazor Server dashboard site</h2>
+            <p>Below you can see a demonstration of a Blazor Server dashboard website I put together in a weekend. It's designed to be a hypothetical example of how you could use Blazor Server to create an internal dashboard for a company. You can find the code for it <a href="https://github.com/anthonysharpy/blazor-dashboard" rel="noreferrer" target="_blank">here</a>. It's not meant to be perfect and was just done for a bit of practice.</p>
+            <video controls><source src="videos/blazor_site_1.mp4"/></video>
+            
             <h2>S&box City</h2>
             <p>S&box City is a gamemode I've been working on for over a year now developed in the s&box games engine. The entire thing is pretty much coded from scratch, including the players, vehicles, NPCs, weapons, entities, persistence, etcetera, although I have borrowed a bit of code from the makers of the engine here and there.</p>
             <p><i>"Is this really something that shows off your C# skills?"</i>. I mean - sure - it's not <i>"This is my example of a basic REST API coded in C# using a tutorial that I found on the internet"</i>. But I would say the answer is definitely yes! Here's why:</p>

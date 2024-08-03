@@ -16,14 +16,14 @@ export function GoPage() {
             
             The API was also responsible for other things such as sending out emails, managing account permissions and processing CSV uploads.</p>
 
-            <h2>Dating App API</h2>
+            <h2>Dating app API</h2>
             <p>I wrote the API for a dating app I created with a friend. The app handled authentication, authorisation, sending emails, serving app data, and of course, applying the matching algorithm.</p>
             <iframe src="https://yayornay.se"></iframe>
             <p>I also set up all the testing and associated infrastructure. In particular we even had an integration tester as a separate Go program that spun up a test database (via Docker) and a copy of the API to perform all kinds of tests. I originally thought about making this integration tester in PowerShell, but since scripts are often both slow to run and develop, and since the same thing in Go was only a hundred lines of code or so, I decided against it.</p>
             <p>The API itself was pretty powerful too. We had a 2-core server hosted on DigitalOcean. In one of our tests we managed to spin up 5,000 concurrent WebSocket connections to the test API. Once we had done that, we sent out one message per WebSocket connection (each of which also involved multiple database calls). Our goal: to send and then receive a response for these 5,000 messages in under 10 seconds. The verdict? It completed in 2.5 seconds. From this single test, it seemed that the server could handle roughly 2,000 WebSocket requests per second in ideal conditions.</p>
             <p>This is not necessarily to do with Go but it was also great working with MongoDB on this project. Go's tags feature lets you easily map your structs to your documents. After that, you just insert the data and it appears in the database like magic.</p>
 
-            <h2>Other Uses</h2>
+            <h2>Other uses</h2>
             <p>Some other things I have used Go for include:</p>
             <ul>
                 <li>I first started using Go back in 2017 in order to replace the PHP server I made for my law app.</li>
@@ -32,7 +32,7 @@ export function GoPage() {
 
             <br/>
             <hr></hr>
-            <h2>Go Tips And Tricks</h2>
+            <h2>Go tips and tricks</h2>
             <p>Given that I have more experience with Go now, I was going to delete this part. But I spent so much time on it that I thought it can't hurt to leave it in for a little while longer. </p>
 
             <h2>Safe(r) concurrent access with getters and setters</h2>
