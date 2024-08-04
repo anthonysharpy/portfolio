@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode, useContext, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import './background.css'
 import { degreesToRadians } from '../helpers/mathhelpers'
@@ -7,7 +7,9 @@ import { ObjectType, SceneObject } from './sceneobject'
 import { SoftShadows } from '@react-three/drei'
 import { CollisionHandler } from './collisionhandler'
 import { Meteor } from './meteor'
-import { Page } from '../pages/pagecontroller'
+import { SiteContext } from '../pages/globalcontext'
+import { Page } from '../types/page'
+import { PageController } from '../pages/pagecontroller'
 
 let lastTickTime: number = Date.now()
 let lastPhysicsTickTime: number = Date.now()
@@ -24,14 +26,11 @@ export class SceneState {
     static currentPageInfo: Page
 }
 
-interface Props {
-    pageInfo: Page
-}
-
-export const Background: React.FC<Props> = (props: Props) => {
+export const Background: React.FC = () => {
     const [, setFrame] = useState<number>(0) // Forces our component to update.
+    const siteContext = useContext(SiteContext);
 
-    SceneState.currentPageInfo = props.pageInfo
+    SceneState.currentPageInfo = PageController.getPage(siteContext!.currentPage);
 
     if (SceneState.sceneObjects === null || SceneState.sceneObjects.length === 0) {
         initialiseScene(SceneState.currentPageInfo.floorColour)

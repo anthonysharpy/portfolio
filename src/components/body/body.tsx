@@ -1,16 +1,19 @@
 import './body.css'
-import { CurrentPageContext } from '../../App'
+import { SiteContext } from '../../pages/globalcontext';
 import { useContext } from 'react';
 import { SceneState } from '../../background/background';
+import { PageController } from '../../pages/pagecontroller';
+import { LanguagePicker } from '../languagepicker/languagepicker';
 
 export const Body: React.FC<{}> = () => {
-    const currentPageContext = useContext(CurrentPageContext);
+    const siteContext = useContext(SiteContext);
 
     return (
         <>
             <div className="content-container">
-                <h1 style={{textShadow: "2px 2px #"+SceneState.currentPageInfo.skyColour.getHexString()+"aa"}}>{currentPageContext?.currentPage.title}</h1>
-                {currentPageContext?.currentPage.content}
+                <LanguagePicker/>
+                <h1 style={{textShadow: "2px 2px #"+SceneState.currentPageInfo.skyColour.getHexString()+"aa"}}>{PageController.getPage(siteContext?.currentPage).title}</h1>
+                {PageController.getPage(siteContext?.currentPage).content}
             </div>
         </>
     )

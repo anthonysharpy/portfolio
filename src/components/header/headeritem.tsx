@@ -1,8 +1,7 @@
 import './headeritem.css'
-import { Page } from "../../pages/pagecontroller";
 import { useContext } from 'react';
-import { CurrentPageContext } from '../../App';
-import { GetPage } from '../../pages/pagecontroller';
+import { SiteContext } from '../../pages/globalcontext';
+import { PageController } from '../../pages/pagecontroller';
 
 interface Props {
     pageName: string
@@ -10,9 +9,9 @@ interface Props {
 }
 
 export const HeaderItem: React.FC<Props> = (props: Props) => {
-    const currentPageContext = useContext(CurrentPageContext);
+  const siteContext = useContext(SiteContext);
 
-    return (
-        <p onClick={() => currentPageContext?.setCurrentPage(GetPage(props.pageIdentifier))} className={currentPageContext?.currentPage.identifer == props.pageIdentifier ? "header-item active" : "header-item"}>{props.pageName}</p>
-    );
+  return (
+    <p onClick={() => siteContext?.setCurrentPage(props.pageIdentifier)} className={siteContext?.currentPage == props.pageIdentifier ? "header-item active" : "header-item"}>{props.pageName}</p>
+  );
 }

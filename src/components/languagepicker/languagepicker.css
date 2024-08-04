@@ -1,0 +1,30 @@
+.language-picker {
+    display: flex;
+    position: absolute;
+    top: 2.3em;
+    right: 2.3em;
+    background-color: #ffffff75;
+    padding: 0.5em;
+    border-radius: 0.7em;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    border: solid #8f8f8f 2px;
+
+    span {
+        margin: -0.2em;
+        padding: 0 0.4em;
+        border-radius: 0.5em;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+@media  (max-width: 780px) {
+    .language-picker {
+        display: none;
+    }
+}

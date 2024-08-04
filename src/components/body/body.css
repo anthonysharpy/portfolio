@@ -10,6 +10,7 @@
     line-height: 2em;
     border: solid black 2px;
     overflow-wrap: break-word;
+    position: relative;
 }
 
 p {
