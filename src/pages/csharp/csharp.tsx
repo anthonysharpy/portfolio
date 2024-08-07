@@ -27,7 +27,7 @@ export function CSharpPage() {
                 <p>You can find the code for it <a href="https://github.com/anthonysharpy/sandbank" rel="noreferrer" target="_blank">here</a>.</p>
 
                 <h2>Blazor Server dashboard site</h2>
-                <p>Below you can see a demonstration of a Blazor Server dashboard website I put together in a weekend. It's designed to be a hypothetical example of how you could use Blazor Server to create an internal dashboard for a company. You can find the code for it <a href="https://github.com/anthonysharpy/blazor-dashboard" rel="noreferrer" target="_blank">here</a>. It's not meant to be perfect and was just done for a bit of practice.</p>
+                <p>Below you can see a demonstration of a Blazor Server dashboard website I put together in two days. It's designed to be a hypothetical example of how you could use Blazor Server to create an internal dashboard for a company. You can find the code for it <a href="https://github.com/anthonysharpy/blazor-dashboard" rel="noreferrer" target="_blank">here</a>. It's not meant to be perfect and was just done for a bit of practice.</p>
                 <video controls><source src="videos/blazor_site_1.mp4"/></video>
                 
                 <h2>S&box City</h2>
