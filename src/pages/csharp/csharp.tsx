@@ -7,7 +7,7 @@ export function CSharpPage() {
     return (
         <>
             <div style={{ display: siteContext?.currentLanguage === "EN" ? 'block' : 'none' }}>
-                <p>I started using C# back in 2014. Making games in Unity is what got me into it originally, and actually a lot of my C# experience is games-related.</p>            
+                <p>I started using C# back in 2012. Making games in Unity is what got me into it originally, and actually a lot of my C# experience is games-related.</p>            
                 
                 <h2>Loan API</h2>
                 <p>I designed the C# API for our loan application service at my current job. Simply put, the API is designed to allow you to create and progress an application for a loan to completion. You can find the source code <a href="https://github.com/paymentassist/paymentassist-csharp" rel="noreferrer" target="_blank">here</a>.</p>
