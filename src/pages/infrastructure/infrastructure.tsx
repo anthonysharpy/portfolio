@@ -8,10 +8,10 @@ export function InfrastructurePage() {
         <>
             <div style={{ display: siteContext?.currentLanguage === "EN" ? 'block' : 'none' }}>
                 <h2>Hosting and Deployment</h2>
-                <p>At my second company I set up the Docker stack used to host our websites (utilising Nginx), as well as our internal API (in Go).</p>
+                <p>At my last company I set up the Docker stack used to host our websites (utilising Nginx), as well as our internal API (in Go).</p>
                 <p>At my current company I have contributed heavily to the local Docker development stack, adding the ability for the tests to run out-of-the-box without any configuration. I created multiple Docker stacks across different repositories that run our unit tests via GitHub Actions, in addition to new container definitions for AWS (again, using Nginx) on which to host our lending sites and internal dashboards.</p>
                 <p>I also have personal experience creating Docker stacks for Capacitor app sites (Vue.js) with a Go backend, hosted on DigitalOcean.</p>
-                <p>All the above has also made me confident with tasks such as setting up SLS certificates (Certbot etc), writing Nginx site configurations, configuring firewalls, connecting via SSH and SFTP, creating DNS records and more.</p>
+                <p>All the above has also made me confident with tasks such as setting up SSL certificates (Certbot etc), writing Nginx site configurations, configuring firewalls, connecting via SSH and SFTP, creating DNS records and more.</p>
                 <p>In terms of hosting providers, I have exposure to Azure, AWS and DigitalOcean. I would be comfortable creating and deploying a website or API in a scalable, secure and economically sensible fashion on any of these, as well as utilising many of the extra features they offer such as bucket storage, database hosting or health checks.</p>
                 <p>I have commercial experience utilising deployment tools such as GitHub Actions, TeamCity and Jenkins.</p>
                 <h2>Databases</h2>
