@@ -1,5 +1,10 @@
-# My Super Cool Portfolio
+# My Portfolio
 
-Hi, this is just the repo for my portfolio.
+This is just the repo for my portfolio at https://anthonysharpy.dev/.
 
-Feel free to have a look. The code is not designed to impress anyone though so take it with a pinch of salt.
+## Running the site locally
+
+```
+npm install
+npm run start
+```
