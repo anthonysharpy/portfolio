@@ -13,11 +13,11 @@ export const LanguagePicker: React.FC = () => {
 
     return (
         <>
-            <div className="language-picker">
+            {/* <div className="language-picker">
                 <span style={siteContext.currentLanguage == "EN" ? highlightedLanguageStyle : {}} onClick={() => siteContext.setCurrentLanguage("EN")}>English</span>
                 <span style={{color: 'rgba(0, 0, 0, 0.19)'}}>|</span>
                 <span style={siteContext.currentLanguage == "JP" ? highlightedLanguageStyle : {}} onClick={() => siteContext.setCurrentLanguage("JP")}>日本語</span>
-            </div>
+            </div> */}
         </>
     );
 }
