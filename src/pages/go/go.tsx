@@ -23,7 +23,7 @@ export function GoPage() {
 
                 <h2>Dating app API</h2>
                 <p>I wrote the API for a dating app I created with a friend. The app handled authentication, authorisation, sending emails, serving app data, and of course, applying the matching algorithm.</p>
-                <iframe src="https://yayornay.se"></iframe>
+                <iframe title="YayOrNay Site" src="https://yayornay.se"></iframe>
                 <p>I also set up all the testing and associated infrastructure. In particular we even had an integration tester as a separate Go program that spun up a test database (via Docker) and a copy of the API to perform all kinds of tests. I originally thought about making this integration tester in PowerShell, but since scripts are often both slow to run and develop, and since the same thing in Go was only a hundred lines of code or so, I decided against it.</p>
                 <p>The API itself was pretty powerful too. We had a 2-core server hosted on DigitalOcean. In one of our tests we managed to spin up 5,000 concurrent WebSocket connections to the test API. Once we had done that, we sent out one message per WebSocket connection (each of which also involved multiple database calls). Our goal: to send and then receive a response for these 5,000 messages in under 10 seconds. The verdict? It completed in 2.5 seconds. From this single test, it seemed that the server could handle roughly 2,000 WebSocket requests per second in ideal conditions.</p>
                 <p>This is not necessarily to do with Go but it was also great working with MongoDB on this project. Go's tags feature lets you easily map your structs to your documents. After that, you just insert the data and it appears in the database like magic.</p>
@@ -237,7 +237,7 @@ export function GoPage() {
 
             <h2>デーティングアプリAPI</h2>
             <p>友人と一緒に作成したデーティングアプリのAPIを書きました。このアプリは認証、認可、メール送信、アプリデータの提供、そしてもちろんマッチングアルゴリズムの適用を処理しました。</p>
-            <iframe src="https://yayornay.se"></iframe>
+            <iframe title="YayOrNay Site (Japanese)" src="https://yayornay.se"></iframe>
             <p>また、テストと関連インフラの設定も行いました。特に、Dockerを使用してテストデータベースとAPIのコピーを起動し、さまざまなテストを実行する統合テスターを別のGoプログラムとして持っていました。最初はPowerShellでこの統合テスターを作成しようと考えましたが、スクリプトは実行も開発も遅いことが多く、Goで同じことをするのはわずか100行程度だったため、結局Goで作成しました。</p>
             <p>API自体も非常に強力でした。DigitalOceanにホストされた2コアのサーバーで、テストAPIに5000の同時WebSocket接続を起動するテストを実行しました。その後、各WebSocket接続ごとにメッセージを1つ送信し、各メッセージに複数のデータベース呼び出しを伴うテストを行いました。目標は、5000のメッセージを10秒以内に送信して応答を受け取ることでした。その結果、2.5秒で完了しました。この単一のテストから、理想的な条件下ではサーバーが毎秒約2000のWebSocketリクエストを処理できることが分かりました。</p>
             <p>これはGoに直接関係はありませんが、このプロジェクトでMongoDBと協力するのも素晴らしかったです。Goのタグ機能により、構造体をドキュメントに簡単にマッピングできます。その後、データを挿入すると、魔法のようにデータベースに表示されます。</p>

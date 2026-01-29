@@ -1,15 +1,16 @@
 import './languagepicker.css'
-import React, { useContext } from 'react';
-import { SiteContext } from '../../pages/globalcontext';
-import { PageController } from '../../pages/pagecontroller';
+import React from 'react';
+//import React, { useContext } from 'react';
+//import { SiteContext } from '../../pages/globalcontext';
+//import { PageController } from '../../pages/pagecontroller';
 
 export const LanguagePicker: React.FC = () => {
-    const siteContext = useContext(SiteContext);
+    //const siteContext = useContext(SiteContext);
 
-    const highlightedLanguageStyle = {
-        backgroundColor: PageController.getPage(siteContext.currentPage).skyColour.getStyle(),
-        color: 'white'
-    }
+    // const highlightedLanguageStyle = {
+    //     backgroundColor: PageController.getPage(siteContext.currentPage).skyColour.getStyle(),
+    //     color: 'white'
+    // }
 
     return (
         <>

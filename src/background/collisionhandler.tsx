@@ -18,7 +18,7 @@ export class CollisionHandler {
 
     /** This object has collided with the floor. Get the point of impact. */
     private static getImpactPointWithFloor(object: SceneObject): Vector3 {
-        if (object.velocity.y == 0) {
+        if (object.velocity.y === 0) {
             return object.getPosition()
         }
 
@@ -29,15 +29,15 @@ export class CollisionHandler {
 
     /** These objects are colliding. Fix any overlap between them. */
     static resolveOverlap(objectA: SceneObject, objectB: SceneObject, physicsDelta: number) {
-        if (objectA.type == ObjectType.Cube || objectB.type == ObjectType.Cube) {
+        if (objectA.type === ObjectType.Cube || objectB.type === ObjectType.Cube) {
             return
         }
 
-        if (objectA.type == ObjectType.Plane) {
+        if (objectA.type === ObjectType.Plane) {
             // Object B is colliding with the floor, so just set it to the point of impact.
             objectB.setPosition(CollisionHandler.getImpactPointWithFloor(objectB))
             return
-        } else if (objectB.type == ObjectType.Plane) {
+        } else if (objectB.type === ObjectType.Plane) {
              // Object A is colliding with the floor, so just set it to the point of impact.
              objectA.setPosition(CollisionHandler.getImpactPointWithFloor(objectA))
              return
@@ -70,7 +70,7 @@ export class CollisionHandler {
 
             const totalMagVelocity = magVelocityA + magVelocityB;
 
-            if (totalMagVelocity == 0)
+            if (totalMagVelocity === 0)
                 return;
 
             objectA.getPositionRef().add(overlapCorrection.multiplyScalar(magVelocityA / totalMagVelocity))

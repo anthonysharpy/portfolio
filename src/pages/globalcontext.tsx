@@ -1,5 +1,4 @@
 import React, { createContext, ReactNode, useState } from 'react';
-import { Page } from '../types/page';
 
 interface GlobalContextProps {
   children: ReactNode;
